@@ -1,58 +1,258 @@
 *{
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --bg: rgb(192, 219, 223);
     --bg-accent: rgb(0, 128, 128);
     --bg-card: rgb(233, 245, 247);
     --text: black;
     --text-accent: rgb(216, 160, 6);
     --text-card: grey;
-
+    --drop-shadow: drop-shadow(0px 5px 1px #0000002a);
 }
 
 
 .container {
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 1fr 5fr;
 }
 
 .sidebar {
     background-color: var(--bg-accent);
     color: var(--text-accent);
+    font-size: 18px;
+    font-weight: 800;
+    padding: 15px;
     display: grid;
+    grid-template-rows: minmax(40px, 60px) minmax(240px, 360px) minmax(120px, 180px);
+    align-items: start;
 } 
+.sidebar
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    column-gap: 15px;
+    font-size: 25px;
+}
+.sidebar
+.mid {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: repeat(6, 30px);
+    column-gap: 15px;
+     grid-template-areas: 
+    "home-icon home"
+    "profile-icon profile"
+    "messages-icon messages"
+    "history-icon history"
+    "tasks-icon tasks"
+    "communities-icon communities"
+}
+
+.sidebar
+.bottom {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: repeat(3, 30px);
+    column-gap: 15px;
+    grid-template-areas: 
+    "settings-icon settings"
+    "support-icon support"
+    "privacy-icon privacy"
+}
 
 .main {
-    background-color: var(--bg-card);
+    background-color: var(--bg);
+    
 }
 
 .searchbar {
+    background-color: var(--bg-card);
     display: grid;
-    grid-template-columns: 60% repeat(2, 1fr) 30%;
+    grid-template-columns: auto repeat(2, 30px) 150px;
+    grid-template-rows: 40px;
+    gap: 15px;
 }
 
 .searchbar input {
+    width: 400px;
     border: none;
     border-radius: 10px;
     background-color: var(--bg);
 }
+.searchbell {
+    place-self: center;
+}
+.searchicon,
+.icon {
+    place-self: center;
+    font-size: 25px;
+    background-color: var(--text-accent);
+    border-radius: 20px;
+}
+.searchuser {
+    place-self: center;
+    font-weight: 800;
+}
+.search {
+    place-self: center;
+}
 
 .nav {
+    background-color: var(--bg-card);
+    filter: var(--drop-shadow);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 80px;
+    align-items: center;
 }
+
 .user {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 10px 40px;
+    grid-template-areas: 
+    "user-icon hi"
+    "user-icon user-name";
+    column-gap: 15px;
+}
+.user-icon {
+    grid-area: user-icon;
+    place-self: center;
+    justify-self: end;
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--text-accent);
+    border-radius: 60px;
+    justify-items: center;
+}
+.user-name {
+    font-size: 25px;
+    font-weight: 800;
+    grid-area: user-name;
+    align-self: self-start;
+    justify-self: start;
+}
+.hi {
+    align-self: self-end;
+    font-size: 10px;
+    font-weight: 800;
+    grid-area: hi;
+    align-self: self-end;
+    justify-self: start;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr)
+}
+button {
+    background-color: var(--bg-accent);
+    border: none;
+    width: 80px;
+    height: 30px;
+    border-radius: 15px;
+    place-self: center
 }
 
 .content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: "projects aside";
+    padding: 15px;
+    gap: 15px;
 }
+
+.content
+h1 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.projects {
+    grid-area: projects;
+}
+
 .cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 15px;
+    filter: var(--drop-shadow);
+}
 
+.card {
+
+    background-color: var(--bg-card);
+    border-left: 5px solid var(--text-accent);
+    border-radius: 5px;
+    display: grid;
+    padding: 15px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 150px 50px;
+    grid-template-areas: "card-title"
+    "card-text"
+    "card-icons";
+}
+.card-title{
+    font-size: 15px;
+    font-weight: 800;
+    align-self: self-end;
+}
+.card-text{
+    font-size: 15px;
+    color: var(--text-card);
+}
+.card-icons{
+ justify-self: end;
+}
+
+
+.aside {
+    grid-area: aside;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+
+}
+
+.announcement-cards,
+.trending-cards{
+    background-color: var(--bg-card);
+    border-radius: 5px;
+    display: grid;
+    padding: 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3 1fr);
+    filter: var(--drop-shadow);
+    gap: 15px;
+}
+.trending{
+    align-self: end;
+}
+
+.announcement-title, 
+.user{
+    font-size: 12px;
+    font-weight: 800;
+}
+.announcement-text, .user-description{
+    font-size: 12px;
+    color: var(--text-card);
+}
+.trending-card {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows:20px 20px;
+    grid-template-areas: "icon user"
+    "icon user-description";
+}
+.icon {
+    grid-area: icon;
+}
+.user {
+    grid-area: user;
+}
+.user-description {
+    grid-area: user-description;
 }
