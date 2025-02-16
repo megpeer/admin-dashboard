@@ -1,0 +1,58 @@
+*{
+    border: 1px solid red;
+    --bg: rgb(192, 219, 223);
+    --bg-accent: rgb(0, 128, 128);
+    --bg-card: rgb(233, 245, 247);
+    --text: black;
+    --text-accent: rgb(216, 160, 6);
+    --text-card: grey;
+
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.sidebar {
+    background-color: var(--bg-accent);
+    color: var(--text-accent);
+    display: grid;
+} 
+
+.main {
+    background-color: var(--bg-card);
+}
+
+.searchbar {
+    display: grid;
+    grid-template-columns: 60% repeat(2, 1fr) 30%;
+}
+
+.searchbar input {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--bg);
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.user {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
